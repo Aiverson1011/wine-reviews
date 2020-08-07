@@ -2,7 +2,7 @@ export const initState = {
   allReviews: [],
   currentReviews: [],
   currentCountry: '',
-  resultsCount: 2,
+  resultsCount: 10,
   pageNumber: 0,
   countries: {},
   loading: true
@@ -28,6 +28,12 @@ export default (state = initState, action) => {
     case 'SET_PAGE_NUMBER':
       newState.pageNumber = payload;
       break;
+    case 'SET_RESULTS_COUNT':
+      newState.resultsCount = payload;
+      break;
+    case 'FILTER_RESULTS':
+      newState.currentReviews = [...filterReviews(payload, newState.currentReviews)];
+      break;
     default:
       break;
   }
@@ -50,4 +56,15 @@ function populateCountries(arr) {
   });
 
   return countries;
+}
+
+function filterReviews(query, currentReviews) {
+  let filteredArr = currentReviews.filter(review => {
+    return review.title.includes(query) 
+    || review.variety.includes(query)
+    || review.winery.includes(query)
+    || review.tasterName.includes(query)
+  });
+
+  return filteredArr;
 }

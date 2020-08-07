@@ -20,7 +20,6 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
     }
   }
 
-
   return (
     <>
       <h1>Review List</h1>
@@ -64,7 +63,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
           {pageNumber + 3}
         </Button>
         }
-        
+
         <Button
           disabled={pageEnd >= currentReviews.length - 1}
           onClick={() => setPageNumber(pageNumber + 1)}

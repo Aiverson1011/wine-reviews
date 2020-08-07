@@ -5,6 +5,7 @@ import * as actions from './store/review-actions';
 
 import Header from './components/header';
 import ReviewList from './components/review-list';
+import Search from './components/search';
 
 
 function App({get}) {
@@ -17,6 +18,7 @@ function App({get}) {
   return (
     <>
         <Header />
+        <Search />
         <ReviewList />
     </>
   );

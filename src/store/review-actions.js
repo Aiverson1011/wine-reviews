@@ -317,3 +317,17 @@ export const setPageNumber = (payload) => {
     payload
   }
 }
+
+export const setResultsCount = (payload) => {
+  return {
+    type: 'SET_RESULTS_COUNT',
+    payload
+  }
+}
+
+export const filterResults = (payload) => {
+  return {
+    type: 'FILTER_RESULTS',
+    payload
+  }
+}
