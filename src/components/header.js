@@ -20,16 +20,22 @@ function Header(props) {
     countryOptions.push(<option key={`country-${i}`} value={country}>{`${country} ${percentage}%`}</option>);
   })
 
-  return (
-    <>
-      <h1>Header Stuff</h1>
-      <label htmlFor="countries">Country of Origin:</label>
+  
 
-      <select name="countries" id="countries-list" onChange={selectCountry}>
-        <option default value={null}>Please select a country</option>
-        {countryOptions}
-      </select>
-    </>
+  return (
+    <div>
+      <div>
+        <h2>TOTAL NUMBER OF REVIEWS</h2>
+        <div>{props.currentReviews.length}</div>
+      </div>
+      <div>
+        <h2>Country of Origin:</h2>
+        <select name="countries" id="countries-list" onChange={selectCountry}>
+          <option default value={null}>Please select a country</option>
+          {countryOptions}
+        </select>
+      </div>
+    </div>
   );
 };
 

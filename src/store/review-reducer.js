@@ -4,7 +4,8 @@ export const initState = {
   currentCountry: '',
   resultsCount: 10,
   pageNumber: 0,
-  countries: {}
+  countries: {},
+  loading: true
 }
 
 export default (state = initState, action) => {
