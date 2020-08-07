@@ -19,6 +19,11 @@ export default (state = initState, action) => {
       let countryMap = populateCountries(payload);
       newState.countries = {...countryMap};
       break;
+    case 'SET_CURRENT':
+      newState.currentCountry = payload;
+      console.log('!?!?!',newState.countries[newState.currentCountry]);
+      newState.currentReviews = [...newState.countries[newState.currentCountry]];
+      break;
     default:
       break;
   }
