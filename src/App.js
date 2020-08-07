@@ -1,11 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {connect} from 'react-redux';
 
-function App() {
+import * as actions from './store/review-actions';
+
+import Header from './components/header';
+import ReviewList from './components/review-list';
+
+
+function App({get}) {
+
+
+  useEffect(() => {
+    get();
+  }, [get]);
+  
   return (
-    <div className="App">
-      
-    </div>
+    <>
+        <Header />
+        <ReviewList />
+    </>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+
+  }
+}
+
+const mapDispatchToProps = (dispatch, getState) => {
+  return {
+    get: (data) => dispatch( actions.get(data) ),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
