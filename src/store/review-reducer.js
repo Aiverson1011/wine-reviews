@@ -2,7 +2,7 @@ export const initState = {
   allReviews: [],
   currentReviews: [],
   currentCountry: '',
-  resultsCount: 10,
+  resultsCount: 2,
   pageNumber: 0,
   countries: {},
   loading: true
@@ -22,8 +22,11 @@ export default (state = initState, action) => {
       break;
     case 'SET_CURRENT':
       newState.currentCountry = payload;
-      console.log('!?!?!',newState.countries[newState.currentCountry]);
       newState.currentReviews = [...newState.countries[newState.currentCountry]];
+      newState.pageNumber = 0;
+      break;
+    case 'SET_PAGE_NUMBER':
+      newState.pageNumber = payload;
       break;
     default:
       break;
