@@ -34,6 +34,9 @@ export default (state = initState, action) => {
     case 'FILTER_RESULTS':
       newState.currentReviews = [...filterReviews(payload, newState.currentReviews)];
       break;
+    case 'SET_LOADING':
+      newState.loading = !newState.loading;
+      break;
     default:
       break;
   }

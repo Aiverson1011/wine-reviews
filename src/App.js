@@ -8,7 +8,7 @@ import ReviewList from './components/review-list';
 import Search from './components/search';
 
 
-function App({get}) {
+function App({get, loading}) {
 
   
 
@@ -27,16 +27,21 @@ function App({get}) {
   
   return (
     <div style={styles.appFlex}>
-        <Header />
-        <Search />
-        <ReviewList />
+        {
+          !loading && 
+          <Header /> &&
+          <Search /> &&
+          <ReviewList />
+        }
+
+        {loading && <h1>Loading Reviews...</h1>}
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   return {
-
+    loading: state.reviews.loading
   }
 }
 
