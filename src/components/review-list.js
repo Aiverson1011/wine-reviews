@@ -61,7 +61,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         <Button 
           disabled={pageNumber < 1}
-          onCtdck={() => setPageNumber(pageNumber - 1)}
+          onClick={() => setPageNumber(pageNumber - 1)}
         >
           {'<<'}
         </Button>
@@ -74,7 +74,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         {!(pageEnd >= currentReviews.length - 1) && 
         <Button
-          onCtdck={() => setPageNumber(pageNumber + 2)}
+          onClick={() => setPageNumber(pageNumber + 2)}
           disabled={pageEnd >= currentReviews.length - 1}
 
         >
@@ -84,7 +84,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         { !(pageEnd >= currentReviews.length - 1) && 
         <Button
-          onCtdck={() => setPageNumber(pageNumber + 3)}
+          onClick={() => setPageNumber(pageNumber + 3)}
 
         >
           {pageNumber + 3}
@@ -93,7 +93,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         <Button
           disabled={pageEnd >= currentReviews.length - 1}
-          onCtdck={() => setPageNumber(pageNumber + 1)}
+          onClick={() => setPageNumber(pageNumber + 1)}
         >
           {'>>'}
         </Button>
