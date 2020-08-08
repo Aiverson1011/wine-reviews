@@ -16,7 +16,7 @@ function Header(props) {
   let countryOptions = [];
 
   Object.keys(props.countries).forEach((country, i) => {
-    let percentage = (props.countries[country].length / props.allReviews.length) * 100;
+    let percentage = Math.ceil((props.countries[country].length / props.allReviews.length) * 100);
     countryOptions.push(<option key={`country-${i}`} value={country}>{`${country} ${percentage}%`}</option>);
   })
 
