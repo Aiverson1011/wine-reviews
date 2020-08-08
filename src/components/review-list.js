@@ -19,14 +19,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
      
   }
 
-  reviewsToShow.push(<tr>
-    <th>Title</th>
-    <th>Variety</th>
-    <th>Winery</th>
-    <th>Points</th>
-    <th>Price</th>
-    <th>Taster</th>
-  </tr>)
+  
  
   for(let i = pageStart; i <= pageEnd; i++) {
     
@@ -40,7 +33,6 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
         <td>{currentReviews[i].tasterName}</td>
       </tr>);
       
-
     }
   }
 
@@ -49,7 +41,19 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
     <>
       <h1>Review</h1>
       <table style={styles.table}>
-        {reviewsToShow}
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Variety</th>
+            <th>Winery</th>
+            <th>Points</th>
+            <th>Price</th>
+            <th>Taster</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reviewsToShow} 
+        </tbody>
       </table>
       {reviewsToShow.length > 0 && 
       <ButtonGroup

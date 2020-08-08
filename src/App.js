@@ -27,12 +27,10 @@ function App({get, loading}) {
   
   return (
     <div style={styles.appFlex}>
-        {
-          !loading && 
-          <Header /> &&
-          <Search /> &&
+        
+          <Header />
+          <Search />
           <ReviewList />
-        }
 
         {loading && <h1>Loading Reviews...</h1>}
     </div>
