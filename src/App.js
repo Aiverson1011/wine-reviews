@@ -10,17 +10,27 @@ import Search from './components/search';
 
 function App({get}) {
 
+  
 
   useEffect(() => {
     get();
   }, [get]);
+
+  const styles = {
+    appFlex: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }
+  }
   
   return (
-    <>
+    <div style={styles.appFlex}>
         <Header />
         <Search />
         <ReviewList />
-    </>
+    </div>
   );
 }
 

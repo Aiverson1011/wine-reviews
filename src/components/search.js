@@ -21,6 +21,13 @@ function Search(props) {
     props.setResultsCount(e.target.value);
   }
 
+  const styles = {
+    search: {
+      width: '100%',
+      display: 'flex'
+    }
+  }
+
   return (
     <div>
       <form onSubmit={ handleSearch } style={{display: 'inline'}}>

@@ -11,19 +11,46 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
   let pageStart = pageNumber * resultsCount;
   let pageEnd = pageStart + resultsCount - 1;
-  console.log(pageStart, pageEnd);
+  
+  const styles = {
+    table: {
+      width: '100%',
+    },
+     
+  }
+
+  reviewsToShow.push(<tr>
+    <th>Title</th>
+    <th>Variety</th>
+    <th>Winery</th>
+    <th>Points</th>
+    <th>Price</th>
+    <th>Taster</th>
+  </tr>)
  
   for(let i = pageStart; i <= pageEnd; i++) {
     
     if (currentReviews[i]) {
-      reviewsToShow.push(<p key={`review-${i}`}>{currentReviews[i].title}</p>);
+      reviewsToShow.push(<tr key={`review-${i}`}>
+        <td>{currentReviews[i].title}</td>
+        <td>{currentReviews[i].variety}</td>
+        <td>{currentReviews[i].winery}</td>
+        <td>{currentReviews[i].points}</td>
+        <td>{currentReviews[i].price}</td>
+        <td>{currentReviews[i].tasterName}</td>
+      </tr>);
+      
+
     }
   }
 
+
   return (
     <>
-      <h1>Review List</h1>
-      {reviewsToShow}
+      <h1>Review</h1>
+      <table style={styles.table}>
+        {reviewsToShow}
+      </table>
       {reviewsToShow.length > 0 && 
       <ButtonGroup
         variant='text'
@@ -34,7 +61,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         <Button 
           disabled={pageNumber < 1}
-          onClick={() => setPageNumber(pageNumber - 1)}
+          onCtdck={() => setPageNumber(pageNumber - 1)}
         >
           {'<<'}
         </Button>
@@ -47,7 +74,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         {!(pageEnd >= currentReviews.length - 1) && 
         <Button
-          onClick={() => setPageNumber(pageNumber + 2)}
+          onCtdck={() => setPageNumber(pageNumber + 2)}
           disabled={pageEnd >= currentReviews.length - 1}
 
         >
@@ -57,7 +84,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         { !(pageEnd >= currentReviews.length - 1) && 
         <Button
-          onClick={() => setPageNumber(pageNumber + 3)}
+          onCtdck={() => setPageNumber(pageNumber + 3)}
 
         >
           {pageNumber + 3}
@@ -66,7 +93,7 @@ function ReviewList({currentReviews, pageNumber, resultsCount, setPageNumber}) {
 
         <Button
           disabled={pageEnd >= currentReviews.length - 1}
-          onClick={() => setPageNumber(pageNumber + 1)}
+          onCtdck={() => setPageNumber(pageNumber + 1)}
         >
           {'>>'}
         </Button>

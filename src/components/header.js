@@ -20,15 +20,28 @@ function Header(props) {
     countryOptions.push(<option key={`country-${i}`} value={country}>{`${country} ${percentage}%`}</option>);
   })
 
+  const styles = {
+    largeText: {
+      fontSize: 50
+    },
+    flex: {
+      display: 'flex',
+      justifyContent: 'space-between'
+    },
+    container: {
+      margin: '0 10px'
+    }
+
+  }
   
 
   return (
-    <div>
-      <div>
+    <div style={styles.flex}>
+      <div style={styles.container}>
         <h2>TOTAL NUMBER OF REVIEWS</h2>
-        <div>{props.currentReviews.length}</div>
+        <h3 style={styles.largeText}>{props.currentReviews.length}</h3>
       </div>
-      <div>
+      <div style={styles.container}>
         <h2>Country of Origin:</h2>
         <select name="countries" id="countries-list" onChange={selectCountry}>
           <option default value={null}>Please select a country</option>
